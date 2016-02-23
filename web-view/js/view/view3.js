@@ -1,5 +1,7 @@
 var View3 = function (container, model){
 	model.addObserver(this);
+	this.backBtn = container.find("#back-btn");
+	this.confDishBtn = container.find("#conf-dish-btn");
 
 	this.dishBox = container.find("#dishBox");
 	this.numberOfGuests = container.find("#numberOfGuests");

@@ -1,6 +1,6 @@
 var View5 = function (container, model){
 	model.addObserver(this);
-	
+	this.backBtn = container.find("#back-btn");
 	this.numberOfGuests = container.find("#numberOfGuests");
 	
 	this.starterImage = container.find("#starterImage");

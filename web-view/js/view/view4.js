@@ -1,5 +1,7 @@
 var View4 = function (container, model){
 	model.addObserver(this);
+	this.printBtn = container.find("#print-btn");
+	this.backBtn = container.find("#back-btn");
 	
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.starterImage = container.find("#starterImage");

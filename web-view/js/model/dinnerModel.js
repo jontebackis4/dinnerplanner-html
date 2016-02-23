@@ -7,6 +7,7 @@ var DinnerModel = function() {
 	this.guests = 2;
 	this.selectedMenu = [0,0,0];
 	this.observers = [];
+	this.pending ;
 
 	this.addObserver = function(observer){
 		this.observers.push(observer);
@@ -19,7 +20,16 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
+	
+	this.setPending = function(id){
+		this.pending = this.getDish(id);
+		this.notifyObservers();
+	}
+	
+	this.getPending = function() {
+		return this.pending;
+	}
+	
 	this.setNumberOfGuests = function(num) {
 		this.guests = num;
 		this.notifyObservers();
