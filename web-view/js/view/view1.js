@@ -4,6 +4,7 @@ var View1 = function (container, model){
 	this.minusButton = container.find("#minusGuest");
 	this.plusButton = container.find("#plusGuest");
 	this.confirmButton = container.find("#confirm-btn");
+	this.removePendingBtn = container.find("#removePending")
 
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.dishID = container.find("#dishID");
@@ -14,6 +15,7 @@ var View1 = function (container, model){
 	this.mainDishPrice = container.find("#mainDishPrice");
 	this.dessertName = container.find("#dessertName");
 	this.dessertPrice = container.find("#dessertPrice");
+	this.pendingPrice = container.find("#pendingPrice");
 
 	this.update = function(Object){
 		var menuList = model.getFullMenu();
@@ -32,6 +34,11 @@ var View1 = function (container, model){
 			this.dessertPrice.html(model.getDishPrice(menuList[2].id)*model.getNumberOfGuests());
 		}
 		this.menuPrice.html(model.getTotalMenuPrice());
+		if(model.getPending()){
+			this.pendingPrice.html(model.getDishPrice(model.getPending().id)*model.getNumberOfGuests());
+		}else{
+			this.pendingPrice.html("00");
+		}
 	}
 
 	var menuList = model.getFullMenu();
@@ -53,6 +60,11 @@ var View1 = function (container, model){
 		this.dessertPrice.html(model.getDishPrice(menuList[2].id)*model.getNumberOfGuests());
 	}
 	this.menuPrice.html(model.getTotalMenuPrice());
+	if(model.getPending()){
+		this.pendingPrice.html(model.getDishPrice(model.getPending().id)*model.getNumberOfGuests());
+	}else{
+			this.pendingPrice.html("00");
+	}
 	
 	
 }

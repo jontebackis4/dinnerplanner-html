@@ -10,6 +10,11 @@ var Controller1 = function(view, model){
 		}
 	});
 
+	view.removePendingBtn.click(function(){
+		
+		console.log(model.getPending());
+	});
+
 	view.confirmButton.click(function(){
 		console.log("HEJ");
 	});

@@ -1,6 +1,7 @@
 var View2 = function (container, model){
 	model.addObserver(this);
 	
+	
 	this.numberOfGuests = container.find("#numberOfGuests");
 	this.dishBox = container.find("#dishBox");
 
@@ -17,16 +18,6 @@ var View2 = function (container, model){
 		return model.getAllDishes(type, filter);
 	}
 	
-	/*document.getElementById('0').addEventListener("click", function(){
-		console.log(document.getElementById('0').getAttribute('value'));
-	});
-	document.getElementById('1').addEventListener("click", function(){
-		console.log(document.getElementById(String('1')).getAttribute('value'));
-	});
-	document.getElementById('2').addEventListener("click", function(){
-		console.log(document.getElementById(String('2')).getAttribute('value'));
-	});*/
-	
 	this.update = function(Object){
 		var dishOutput = "";
 		var dishList = Object;
@@ -36,22 +27,6 @@ var View2 = function (container, model){
 			}
 		}
 		this.dishBox.html(dishOutput);
-		this.numberOfGuests.html(model.getNumberOfGuests());
-		
-		
-		/*document.getElementById('0').addEventListener("click", function(){
-			var id = document.getElementById('0').getAttribute('value');
-			console.log(id);
-		});
-		document.getElementById('1').addEventListener("click",function(){
-			console.log(document.getElementById(String('1')).getAttribute('value'));
-		});
-		document.getElementById('2').addEventListener("click",function(){
-			console.log(document.getElementById(String('2')).getAttribute('value'));
-		});
-		document.getElementById('3').addEventListener("click",function(){
-			console.log(document.getElementById(String('3')).getAttribute('value'));
-		});*/
-		
+		this.numberOfGuests.html(model.getNumberOfGuests());	
 	}
 }

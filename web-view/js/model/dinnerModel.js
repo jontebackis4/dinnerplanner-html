@@ -22,8 +22,13 @@ var DinnerModel = function() {
 	}
 	
 	this.setPending = function(id){
-		this.pending = this.getDish(id);
-		this.notifyObservers();
+		if(id){
+			this.pending = this.getDish(id);
+			this.notifyObservers();
+		}else{
+			this.pending=id;
+			this.notifyObservers();
+		}
 	}
 	
 	this.getPending = function() {
