@@ -1,10 +1,14 @@
 var Controller3 = function(view, model){
 	
 	view.backBtn.click(function(){
-		console.log("go to page 2");
+		$("#view3").hide();
+		$("#view2").show();
 	});
 	
 	view.confDishBtn.click(function(){
-		console.log("go to page 2 with a dish in hand");
+		$("#view3").hide();
+		$("#view2").show();
+		model.addDishToMenu(model.getPending().id);
+		model.setPending(null);
 	});
 }

@@ -4,8 +4,9 @@ body {
 	align-items: stretch;
 	flex-direction: column;
 }
-#start-page{ 
+.start-page{ 
 	background: url("http://i.imgur.com/KZtvHN9.png") no-repeat fixed center;	
+	height: 80vh;
 }
 .header {
 	border: 2px solid;

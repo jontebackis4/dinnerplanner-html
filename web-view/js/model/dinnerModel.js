@@ -116,14 +116,13 @@ var DinnerModel = function() {
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		var dish = this.getDish(id);
-		if(dish.type === "starter"){
+		if(id === "starter"){
 			this.selectedMenu[0]= 0;
 		}
-		else if(dish.type === "main dish"){
+		else if(id === "main dish"){
 			this.selectedMenu[1]= 0;
 		}
-		else if(dish.type === "dessert"){
+		else if(id === "dessert"){
 			this.selectedMenu[2]= 0;
 		}
 		this.notifyObservers();

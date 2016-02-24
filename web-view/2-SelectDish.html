@@ -17,7 +17,7 @@
 			<p id="head">From the best chefs in the world directly into your kitchen</p>
 	</div>
 	<div class="row">
-		<div class="col-md-2 no-pad" id="view1">
+		<div class="col-md-2 no-pad" id="view1"><!--                              här börjar view 1-->
 			<div id="side-bar">
 				<div>
 					<h4>My Dinner</h4>
@@ -42,15 +42,30 @@
 				</div>
 				<div class="row">
 						<div class="col-md-6"><p><span id ="starterName"></span></p></div>
-						<div class="col-md-6"><p align="right"><span id ="starterPrice"></span></p></div>
+						<div class="col-md-4 no-pad"><p align="right"><span id ="starterPrice"></span></p></div>
+						<div class="col-md-1">
+							<div class ="row">
+									<button id="removeStarter" class="btn btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+							</div>
+						</div>
 				</div>
 				<div class="row">
 						<div class="col-md-6"><p><span id ="mainDishName"></span></p></div>
-						<div class="col-md-6"><p align="right"><span id ="mainDishPrice"></span></p></div>
+						<div class="col-md-4 no-pad"><p align="right"><span id ="mainDishPrice"></span></div>
+						<div class="col-md-1">
+							<div class ="row">
+									<button id="removeMainDish" class="btn btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+							</div>
+						</div>
 				</div>
 				<div class="row">
 						<div class="col-md-6"><p><span id ="dessertName"></span></p></div>
-						<div class="col-md-6"><p align="right"><span id ="dessertPrice"></span></p></div>
+						<div class="col-md-4 no-pad"><p align="right"><span id ="dessertPrice"></span></p></div>
+						<div class="col-md-1">
+							<div class ="row">
+									<button id="removeDessert" class="btn btn-xs" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></button>
+							</div>
+						</div>
 				</div>
 					<div class="row" style="border-bottom: 2px solid black; border-top: 2px solid black">
 						<div class="col-md-6"><p>Pending</p></div>
@@ -66,9 +81,9 @@
 					</div>
 					<button id="confirm-btn" type="button" class="btn conf-btn">Confirm Dinner</button>
 			</div>
-		</div>
-		<div class="col-md-10 no-pad bord">
-		<div class="row borderLeft" id ="view2">
+		</div><!--                              här slutar view 1-->
+		<div class="col-md-10 no-pad bord" id ="view2"><!--                              här börjar view 2-->
+		<div class="row borderLeft">
 			<div class="select-dish">
 				<h5>SELECT DISH</h5>
 					<div class = "row">
@@ -102,8 +117,8 @@
 			<div class="row v3">
 				<span class="span" id="dishBox"></span>
 			</div>
+		</div><!--                              här slutar view 2-->
 		</div>
-	</div>
 	</div>
 
     <!-- jQuery -->

@@ -10,12 +10,25 @@ var Controller1 = function(view, model){
 		}
 	});
 
+	view.removeStarterBtn.click(function(){
+		model.removeDishFromMenu("starter");
+	});
+
+	view.removeMainDishBtn.click(function(){
+		model.removeDishFromMenu("main dish");
+	});
+
+	view.removeDessertBtn.click(function(){
+		model.removeDishFromMenu("dessert");
+	});
+
 	view.removePendingBtn.click(function(){
-		
-		console.log(model.getPending());
+		model.setPending(null);
 	});
 
 	view.confirmButton.click(function(){
-		console.log("HEJ");
+		$("#view2").hide();
+		$("#view1").hide();
+		$("#view4").show();
 	});
 }
