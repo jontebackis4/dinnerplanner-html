@@ -8,6 +8,7 @@ var DinnerModel = function() {
 	this.selectedMenu = [0,0,0];
 	this.observers = [];
 	this.pending ;
+	this.loremIpsum= "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eleifend risus libero, id varius nunc vulputate ac. Vestibulum et auctor urna, quis commodo nunc. Suspendisse efficitur libero at mauris laoreet mollis. Sed porta at ex sed consequat. Praesent at risus nibh. Mauris eu odio turpis."
 
 	this.addObserver = function(observer){
 		this.observers.push(observer);
@@ -19,6 +20,10 @@ var DinnerModel = function() {
 				this.observers[obs].update();
 			}
 		}
+	}
+
+	this.getLoremIpsum = function(){
+		return this.loremIpsum;
 	}
 	
 	this.setPending = function(id){

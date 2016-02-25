@@ -50,6 +50,10 @@ p {
 	font-family: "Comic Sans MS", cursive, sans-serif;
 	margin-top: 0.6%;
 }
+.placeboName{
+	font-style: italic;
+	color: grey;
+}
 
 #text-box{
 	width: 50%;
@@ -114,8 +118,9 @@ p {
     border: 2px solid black ;
 }
 
-#v3{
-	margin-top: 4px;
+.v3{
+	margin-left: 5%;
+	margin-top: 20px;
 	align-items: center;
 	overflow: auto;
 }

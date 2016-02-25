@@ -24,11 +24,15 @@ var Controller1 = function(view, model){
 
 	view.removePendingBtn.click(function(){
 		model.setPending(null);
+		$("#view3").hide();
+		$("#view2").show();
 	});
 
 	view.confirmButton.click(function(){
 		$("#view2").hide();
 		$("#view1").hide();
 		$("#view4").show();
+		$("#view3").hide();
+
 	});
 }
