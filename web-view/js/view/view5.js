@@ -22,7 +22,7 @@ var View5 = function (container, model){
 	this.dessertLorem = container.find("#dessertLorem");
 
 	
-	var dishList = model.getAllDishes("main dish");
+
 	var imgDesc = "";
 	var menuList = model.getFullMenu();
 	if (menuList[0] != 0){
@@ -72,7 +72,7 @@ var View5 = function (container, model){
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
 	this.update = function(Object){
-		var dishList = model.getAllDishes("main dish");
+		
 		var imgDesc = "";
 		var menuList = model.getFullMenu();
 		if (menuList[0] != 0){

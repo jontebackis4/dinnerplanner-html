@@ -17,5 +17,21 @@
             }
         });
     }
+    this.getAllDishes = function getRecipeJson(type, filter) {
+        var apiKey = "18f3cT02U9f6yRl3OKDpP8NA537kxYKu";
+        var page = 1;
+        var url = "http://api.bigoven.com/recipe/?api_key=" + apiKey + "&pg=" +page+ "&rpp=18&include_primarycat=" + type + "&any_kw=" + filter;
+        $.ajax({
+            type: "GET",
+            dataType: 'json',
+            cache: false,
+            url: url,
+            success: function (data) {
+                console.log(data.Results);
+                $("#recipeTitle").html(data.Title);
+                $("#instructions").html(data.Instructions);
+            }
+        });
+    }
     getRecipeJson();
 </script>

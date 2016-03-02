@@ -1,13 +1,17 @@
 var Controller2 = function(view, model){
 	
 	var createClick = function(){
-		for(i=0; i<view.getDishFilterType($('select').val().toLowerCase(), $('input').val()).length; i++){
-			document.getElementById(String(i)).addEventListener("click", function(){
+
+		
+		for(i=0; i < view.listlen; i++){
+
+			if (document.getElementById(String(i))){
+				document.getElementById(String(i)).addEventListener("click", function(){
 				model.setPending(this.getAttribute('value'));
 				$("#view2").hide();
 				$("#view3").show();
 			});
-		}
+		}}
 
 	}
 

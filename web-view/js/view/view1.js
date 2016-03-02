@@ -23,7 +23,6 @@ var View1 = function (container, model){
 	this.update = function(Object){
 		var menuList = model.getFullMenu();
 		this.numberOfGuests.html(model.getNumberOfGuests());
-		this.dishID.html(model.getDish(1).name);// fixa med input osv
 		if(menuList[0]!=0){
 			this.starterName.html(menuList[0].name);
 			this.starterPrice.html(model.getDishPrice(menuList[0].id)*model.getNumberOfGuests());
@@ -56,7 +55,6 @@ var View1 = function (container, model){
 
 	var menuList = model.getFullMenu();
 	this.numberOfGuests.html(model.getNumberOfGuests());
-	this.dishID.html(model.getDish(1).name);// fixa med input osv
 	this.starterName.html("Starter");
 	this.mainDishName.html("Main Dish");
 	this.dessertName.html("Dessert");

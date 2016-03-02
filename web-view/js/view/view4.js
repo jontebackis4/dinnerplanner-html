@@ -21,7 +21,6 @@ var View4 = function (container, model){
 	
 	this.menuPrice = container.find("#menuPrice");
 	
-	var dishList = model.getAllDishes("main dish");
 	this.numberOfGuests.html(model.getNumberOfGuests());
 	var imgDesc = "";
 	var menuList = model.getFullMenu();
@@ -73,7 +72,7 @@ var View4 = function (container, model){
 	this.menuPrice.html(model.getTotalMenuPrice());
 
 	this.update = function(Object){
-		var dishList = model.getAllDishes("main dish");
+		var dishList = Object;
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		var imgDesc = "";
 		var menuList = model.getFullMenu();
