@@ -4,19 +4,17 @@ var View4 = function (container, model){
 	this.backBtn = container.find("#back-btn");
 	
 	this.numberOfGuests = container.find("#numberOfGuests");
+
 	this.starterImage = container.find("#starterImage");
 	this.starterName = container.find("#starterName");
-	this.starterDescription = container.find("#starterDescription");
 	this.starterPrice = container.find("#starterPrice");
 	
 	this.mainDishImage = container.find("#mainDishImage");
 	this.mainDishName = container.find("#mainDishName");
-	this.mainDishDescription = container.find("#mainDishDescription");
 	this.mainDishPrice=container.find("#mainDishPrice");
 	
 	this.dessertImage = container.find("#dessertImage");
 	this.dessertName = container.find("#dessertName");
-	this.dessertDescription = container.find("#dessertDescription");
 	this.dessertPrice=container.find("#dessertPrice");
 	
 	this.menuPrice = container.find("#menuPrice");
@@ -26,45 +24,39 @@ var View4 = function (container, model){
 	var menuList = model.getFullMenu();
 
 	if(menuList[0] != 0){
-			imgDesc = "<img src='images/"+menuList[0].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[0].ImageURL+"'>";
 			this.starterImage.html(imgDesc);
-			this.starterDescription.html(menuList[0].description);
 			this.starterName.html(menuList[0].name);
-			this.starterPrice.html(model.getDishPrice(menuList[0].id));
+			this.starterPrice.html(model.getDishPrice(menuList[0])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.starterImage.html(imgDesc);
-			this.starterDescription.html(menuList[0].description);
 			this.starterName.html("");
-			this.starterPrice.html(model.getDishPrice(menuList[0].id));
+			this.starterPrice.html(model.getDishPrice(menuList[0])*model.getNumberOfGuests());
 		}
 
 		if(menuList[1] != 0){
-			imgDesc = "<img src='images/"+menuList[1].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[1].ImageURL+"'>";
 			this.mainDishImage.html(imgDesc);
 			this.mainDishName.html(menuList[1].name);;
-			this.mainDishDescription.html(menuList[1].description);
-			this.mainDishPrice.html(model.getDishPrice(menuList[1].id));
+			this.mainDishPrice.html(model.getDishPrice(menuList[1])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.mainDishImage.html(imgDesc);
 			this.mainDishName.html("");
-			this.mainDishDescription.html(menuList[1].description);
-			this.mainDishPrice.html(model.getDishPrice(menuList[1].id));
+			this.mainDishPrice.html(model.getDishPrice(menuList[1])*model.getNumberOfGuests());
 		}
 
 		if(menuList[2] != 0){
-			imgDesc = "<img src='images/"+menuList[2].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[2].ImageURL+"'>";
 			this.dessertImage.html(imgDesc);
 			this.dessertName.html(menuList[2].name);
-			this.dessertDescription.html(menuList[2].description);
-			this.dessertPrice.html(model.getDishPrice(menuList[2].id));
+			this.dessertPrice.html(model.getDishPrice(menuList[2])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.dessertImage.html(imgDesc);
 			this.dessertName.html("");
-			this.dessertDescription.html(menuList[2].description);
-			this.dessertPrice.html(model.getDishPrice(menuList[2].id));
+			this.dessertPrice.html(model.getDishPrice(menuList[2])*model.getNumberOfGuests());
 		}
 	
 	this.menuPrice.html(model.getTotalMenuPrice());
@@ -78,45 +70,39 @@ var View4 = function (container, model){
 		var menuList = model.getFullMenu();
 
 		if(menuList[0] != 0){
-			imgDesc = "<img src='images/"+menuList[0].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[0].ImageURL+"'>";
 			this.starterImage.html(imgDesc);
-			this.starterDescription.html(menuList[0].description);
 			this.starterName.html(menuList[0].name);
-			this.starterPrice.html(model.getDishPrice(menuList[0].id));
+			this.starterPrice.html(model.getDishPrice(menuList[0])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.starterImage.html(imgDesc);
-			this.starterDescription.html(menuList[0].description);
 			this.starterName.html("");
-			this.starterPrice.html(model.getDishPrice(menuList[0].id));
+			this.starterPrice.html(model.getDishPrice(menuList[0])*model.getNumberOfGuests());
 		}
 
 		if(menuList[1] != 0){
-			imgDesc = "<img src='images/"+menuList[1].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[1].ImageURL+"'>";
 			this.mainDishImage.html(imgDesc);
 			this.mainDishName.html(menuList[1].name);;
-			this.mainDishDescription.html(menuList[1].description);
-			this.mainDishPrice.html(model.getDishPrice(menuList[1].id));
+			this.mainDishPrice.html(model.getDishPrice(menuList[1])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.mainDishImage.html(imgDesc);
 			this.mainDishName.html("");
-			this.mainDishDescription.html(menuList[1].description);
-			this.mainDishPrice.html(model.getDishPrice(menuList[1].id));
+			this.mainDishPrice.html(model.getDishPrice(menuList[1])*model.getNumberOfGuests());
 		}
 
 		if(menuList[2] != 0){
-			imgDesc = "<img src='images/"+menuList[2].image+"'>";
+			imgDesc = "<img class = 'imgSize' src='"+menuList[2].ImageURL+"'>";
 			this.dessertImage.html(imgDesc);
 			this.dessertName.html(menuList[2].name);
-			this.dessertDescription.html(menuList[2].description);
-			this.dessertPrice.html(model.getDishPrice(menuList[2].id));
+			this.dessertPrice.html(model.getDishPrice(menuList[2])*model.getNumberOfGuests());
 		}else{
-			imgDesc = "<img src='images/NoDish.jpg'>";
+			imgDesc = "<img class = 'imgSize' src='images/NoDish.jpg'>";
 			this.dessertImage.html(imgDesc);
 			this.dessertName.html("");
-			this.dessertDescription.html(menuList[2].description);
-			this.dessertPrice.html(model.getDishPrice(menuList[2].id));
+			this.dessertPrice.html(model.getDishPrice(menuList[2])*model.getNumberOfGuests());
 		}
 		
 		this.menuPrice.html(model.getTotalMenuPrice());

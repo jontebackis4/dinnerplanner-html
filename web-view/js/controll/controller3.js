@@ -8,7 +8,7 @@ var Controller3 = function(view, model){
 	view.confDishBtn.click(function(){
 		$("#view3").hide();
 		$("#view2").show();
-		model.addDishToMenu(model.getPending().id);
+		model.addDishToMenu();
 		model.setPending(null);
 	});
 }

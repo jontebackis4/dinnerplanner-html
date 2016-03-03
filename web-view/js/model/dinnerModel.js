@@ -3,9 +3,9 @@ var DinnerModel = function() {
  
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
-	
+	this.pagenr = 1;
 	this.guests = 2;
-	this.selectedMenu = [0,0,0];
+	this.selectedMenu = [0,0,0]; //sorteras som: 1.Appetizer 2.main dish 3. dessert 
 	this.observers = [];
 	this.pending ;
 	this.listLen = 0;
@@ -29,6 +29,16 @@ var DinnerModel = function() {
 		return this.loremIpsum;
 	}
 	
+	this.setPagenr = function(num){
+		if(num <=1){
+			this.pagenr = num;
+		}
+	}
+
+	this.getPagenr = function(){
+		return this.pagenr;
+	}
+
 	this.setPending = function(id){
 		if(id){
 			this.getDish(id);
@@ -43,9 +53,10 @@ var DinnerModel = function() {
 		return this.pending;
 	}
 	
-	this.setNumberOfGuests = function(num) {
+	this.setNumberOfGuests = function(num){
+		console.log("set");
 		this.guests = num;
-		//this.notifyObservers();
+		this.notifyObservers("yellow");
 	}
 
 	// should return 
@@ -54,14 +65,14 @@ var DinnerModel = function() {
 	}
 
 	//Returns the dish that is on the menu for selected type 
-	this.getSelectedDish = function(type) {
-		if (type == "starter"){
+	this.getSelectedDish = function(type) { // tar in ett object
+		if(type === "Appetizers"){
 			return this.selectedMenu[0];
 		}
-		else if (type == "main"){
+		else if(type === "Main Dish"){
 			return this.selectedMenu[1];
 		}
-		else if (type == "dessert"){
+		else if(type === "Desserts"){
 			return this.selectedMenu[2];
 		}
 	}
@@ -83,15 +94,13 @@ var DinnerModel = function() {
 		}
 		return all;
 	}
-	this.getDishPrice = function(id){
+	this.getDishPrice = function(dish){ //tar in ett dish-object
 		var cost = 0;
-
-		/*var dish = this.getDish(id);
 		if(dish){
-			for(i = 0; i< dish.ingredients.length; i++){
-				cost+=dish.ingredients[i].price;
+			for(i = 0; i < dish.Ingredients.length; i++){				
+				cost+= dish.Ingredients[i].Quantity;
 			}
-		}*/
+		}
 		return cost;
 	}
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -99,8 +108,8 @@ var DinnerModel = function() {
 		var cost = 0;
 		for(i = 0; i< this.selectedMenu.length; i++){
 			if(this.selectedMenu[i]!= 0){
-				for(ingred in this.selectedMenu[i].ingredients){
-					cost += this.selectedMenu[i].ingredients[ingred].price;
+				for(ingred in this.selectedMenu[i].Ingredients){
+					cost += this.selectedMenu[i].Ingredients[ingred].Quantity;
 				}
 			}
 		}
@@ -108,32 +117,34 @@ var DinnerModel = function() {
 	}
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	this.addDishToMenu = function(id) {
-		/*var dish = this.getDish(id);
-		if(dish.type === "starter"){
+	this.addDishToMenu = function() { //1.Appetizer 2.bread 3.breakfast 4.drinks 5.salad 6.side dish 7.soup 8.main dish 9.marinade 10.dessert 11.other 
+		var dish = this.getPending();
+		console.log(dish.Category);
+		if(dish.Category === "Appetizers"){
 			this.selectedMenu[0]= dish;
+			console.log(this.selectedMenu[0]);
 		}
-		else if(dish.type === "main dish"){
+		else if(dish.Category === "Main Dish"){
 			this.selectedMenu[1]= dish;
 		}
-		else if(dish.type === "dessert"){
+		else if(dish.Category === "Desserts"){
 			this.selectedMenu[2]= dish;
-		}*/
-		//this.notifyObservers();
+		}
+		this.notifyObservers();
 	}
 
 	//Removes dish from menu
-	this.removeDishFromMenu = function(id) {
-		if(id === "starter"){
+	this.removeDishFromMenu = function(type) {
+		if(type === "Appetizers"){
 			this.selectedMenu[0]= 0;
 		}
-		else if(id === "main dish"){
+		else if(type === "Main Dish"){
 			this.selectedMenu[1]= 0;
 		}
-		else if(id === "dessert"){
+		else if(type === "Desserts"){
 			this.selectedMenu[2]= 0;
 		}
-		//this.notifyObservers();
+		this.notifyObservers();
 	}
 
 
@@ -155,13 +166,9 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function (data) {
-            	
+            	console.log(data);
             	var dishList = data.Results;
-
             	this.notifyObservers(dishList);
-        	
-            	
-
             }.bind(this)
         });
     }
@@ -180,9 +187,9 @@ var DinnerModel = function() {
             cache: false,
             url: url,
             success: function (data) {
-            	console.log(data);
+            	
                 this.pending = data;
-                this.notifyObservers("hej");
+                this.notifyObservers("getDish");
             }.bind(this)
         });
 	}

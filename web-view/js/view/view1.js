@@ -22,32 +22,33 @@ var View1 = function (container, model){
 
 	this.update = function(Object){
 		var menuList = model.getFullMenu();
+		console.log(model.getNumberOfGuests());
 		this.numberOfGuests.html(model.getNumberOfGuests());
 		if(menuList[0]!=0){
-			this.starterName.html(menuList[0].name);
-			this.starterPrice.html(model.getDishPrice(menuList[0].id)*model.getNumberOfGuests());
+			this.starterName.html(menuList[0].Title);
+			this.starterPrice.html(model.getDishPrice(menuList[0])*model.getNumberOfGuests());
 		}else{
 			this.starterPrice.html("");
-			this.starterName.html("Starter");
+			this.starterName.html("Appetizers");
 		}
 		if(menuList[1]!=0){
-			this.mainDishName.html(menuList[1].name);
-			this.mainDishPrice.html(model.getDishPrice(menuList[1].id)*model.getNumberOfGuests());
+			this.mainDishName.html(menuList[1].Title);
+			this.mainDishPrice.html(model.getDishPrice(menuList[1])*model.getNumberOfGuests());
 		}else{
 			this.mainDishPrice.html("");
 			this.mainDishName.html("Main Dish");
 		}
 		if(menuList[2]!=0){
-			this.dessertName.html(menuList[2].name);
-			this.dessertPrice.html(model.getDishPrice(menuList[2].id)*model.getNumberOfGuests());
+			this.dessertName.html(menuList[2].Title);
+			this.dessertPrice.html(model.getDishPrice(menuList[2])*model.getNumberOfGuests());
 		}else{
 			this.dessertPrice.html("");
-			this.dessertName.html("Dessert");
+			this.dessertName.html("Desserts");
 		}
 		this.menuPrice.html(model.getTotalMenuPrice());
 		
 		if(model.getPending()){
-			this.pendingPrice.html(model.getDishPrice(model.getPending().id)*model.getNumberOfGuests());
+			this.pendingPrice.html(model.getDishPrice(model.getPending())*model.getNumberOfGuests());
 		}else{
 			this.pendingPrice.html(0);
 		}
@@ -61,7 +62,7 @@ var View1 = function (container, model){
 	
 	this.menuPrice.html(model.getTotalMenuPrice());
 	if(model.getPending()){
-		this.pendingPrice.html(model.getDishPrice(model.getPending().id)*model.getNumberOfGuests());
+		this.pendingPrice.html(model.getDishPrice(model.getPending())*model.getNumberOfGuests());
 	}else{
 			this.pendingPrice.html("0");
 	}

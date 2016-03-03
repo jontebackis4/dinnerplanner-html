@@ -16,15 +16,14 @@ var Controller2 = function(view, model){
 	}
 
 	$('input').ready(function(){
-		$("button").click(function(){
-			view.update(view.getDishFilterType($('select').val().toLowerCase(), $('input').val()));
-			createClick();
+		$("#srcBtn").click(function(){
+			view.getDishFilterType($('select').val(), $('input').val());
 		})
 	});
 	
-	$('select').change(function(filter){
-		view.update(view.getDishFilterType($('select').val().toLowerCase(), $('input').val()));
-		createClick();
+	$('select').change(function(){
+		console.log(this);
+		view.getDishFilterType($('select').val(), $('input').val());
 	});
 	createClick();
 }

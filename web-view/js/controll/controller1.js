@@ -11,15 +11,15 @@ var Controller1 = function(view, model){
 	});
 
 	view.removeStarterBtn.click(function(){
-		model.removeDishFromMenu("starter");
+		model.removeDishFromMenu("Appetizers");
 	});
 
 	view.removeMainDishBtn.click(function(){
-		model.removeDishFromMenu("main dish");
+		model.removeDishFromMenu("Main Dish");
 	});
 
 	view.removeDessertBtn.click(function(){
-		model.removeDishFromMenu("dessert");
+		model.removeDishFromMenu("Desserts");
 	});
 
 	view.removePendingBtn.click(function(){
